@@ -8,8 +8,28 @@ const routes = [
     element: lazy(() => import("./../containers/Home/")),
     nested: [
       {
-        path: "homepage",
-        element: lazy(() => import("./../containers/HomePage")),
+        path: "",
+        element: lazy(() => import("../containers/Home/HomePage")),
+      },
+      {
+        path: "courses",
+        element: lazy(() => import("../containers/Home/Courses")),
+      },
+      {
+        path: "about",
+        element: lazy(() => import("../containers/Home/About")),
+      },
+      {
+        path: "contact",
+        element: lazy(() => import("../containers/Home/Contact")),
+      },
+      {
+        path: "search-course",
+        element: lazy(() => import("../containers/Home/Search")),
+      },
+      {
+        path: "course-detail",
+        element: lazy(() => import("../containers/Home/CourseDetails")),
       },
     ],
   },
