@@ -1,0 +1,31 @@
+.video {
+  background: url(../../../../../public/assets/bg.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  background-attachment: fixed;
+}
+.video__title {
+  margin-bottom: 2.5rem;
+}
+
+.video__title h2 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #fff;
+}
+
+.video__title p {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #fff;
+}
+
+.video__content {
+  width: 60%;
+  margin: 0 auto;
+  border-radius: 50px;
+}
+.video__content video {
+  width: 100%;
+}
