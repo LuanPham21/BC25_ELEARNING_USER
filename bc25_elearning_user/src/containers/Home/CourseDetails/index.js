@@ -115,7 +115,6 @@ const CourseDetails = () => {
               size="large"
               onClick={() => showModal(newArr[0])}
             >
-            <Button className="w-100" type="primary" size="large" href="">
               Đăng ký
             </Button>
           </div>
