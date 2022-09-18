@@ -2,8 +2,9 @@ import React, { useRef, useEffect } from "react";
 import "./navbar.css";
 import { Container } from "reactstrap";
 import { Button } from "antd";
-
 import { NavLink } from "react-router-dom";
+
+const flag = localStorage.getItem("UserAdmin");
 
 const NAV__LINKS = [
   {
@@ -45,6 +46,39 @@ const Navbar = () => {
 
   const toggleMenu = () => menuRef.current.classList.toggle("active__menu");
 
+  const renderLogin = () => {
+    return (
+      <>
+        {!flag ? (
+          <div className="nav__right d-flex align-items-center gap-5 ">
+            <Button
+              href="/auth/login"
+              className="btn__login mr-3"
+              type="primary"
+            >
+              Đăng nhập
+            </Button>
+            <Button
+              href="/auth/register"
+              className="btn__register"
+              type="primary"
+            >
+              Đăng ký
+            </Button>
+
+            <span className="mobile__menu">
+              <i className="ri-menu-line" onClick={toggleMenu}></i>
+            </span>
+          </div>
+        ) : (
+          <Button href="/profile" className="btn__register" type="primary">
+            Thông tin cá nhân
+          </Button>
+        )}
+      </>
+    );
+  };
+
   return (
     <header className="header" ref={navbarRef}>
       <Container>
@@ -85,19 +119,7 @@ const Navbar = () => {
               </form>
             </ul>
           </div>
-
-          <div className="nav__right d-flex align-items-center gap-5 ">
-            <Button href="/" className="btn__login mr-3" type="primary">
-              Đăng nhập
-            </Button>
-            <Button href="/" className="btn__register" type="primary">
-              Đăng ký
-            </Button>
-
-            <span className="mobile__menu">
-              <i className="ri-menu-line" onClick={toggleMenu}></i>
-            </span>
-          </div>
+          {renderLogin()}
         </div>
       </Container>
     </header>

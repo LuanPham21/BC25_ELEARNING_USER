@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { actGetCourseDetails } from "./reducer/actions";
+import { actGetCourseDetails, actGetRegisCourse } from "./reducer/actions";
 import { Container, Row, Col } from "react-bootstrap";
-import { Button } from "antd";
+import { Button, Modal } from "antd";
 import General from "components/General";
 import "./Course-details.css";
 import RandomCourses from "components/RandomCourses";
@@ -12,14 +12,40 @@ import "../../Home/HomePage/HomeMenu/home-menu.css";
 const CourseDetails = () => {
   const url = useLocation().search;
   const id = new URLSearchParams(url).get("id");
+  const prop = useSelector((state) => state.regisCourseReducer.data);
   const dataDetails = useSelector((state) => state.courseDetailsReducer.data);
+  const data = JSON.parse(localStorage.getItem("UserAdmin"));
   const dispatch = useDispatch();
+  const [visible, setVisible] = useState(false);
+  const [state, setState] = useState({
+    maKhoaHoc: "",
+    taiKhoan: "",
+  });
+
+  const navigate = useNavigate();
+  const [modalText, setModalText] = useState("Content of the modal");
 
   useEffect(() => {
     dispatch(actGetCourseDetails(id));
   }, [id]);
   let arr = [];
   const newArr = [...arr, dataDetails];
+  const handleOk = () => {
+    setVisible(false);
+    dispatch(actGetRegisCourse(state, navigate));
+  };
+  const handleCancel = () => {
+    setVisible(false);
+  };
+
+  const showModal = (maKhoaHoc) => {
+    setState({
+      maKhoaHoc: maKhoaHoc.maKhoaHoc,
+      taiKhoan: data.taiKhoan,
+    });
+    setVisible(true);
+    setModalText(`Bạn có chắc muốn đăng kí khoá học ${maKhoaHoc.tenKhoaHoc}`);
+  };
 
   const renderCourseDetails = () => {
     return (
@@ -83,7 +109,12 @@ const CourseDetails = () => {
             </div>
             <p className="mt-3 text-white">Mô tả: </p>
             <p className="mb-4 desc">{newArr[0]?.moTa}</p>
-
+            <Button
+              className="w-100"
+              type="primary"
+              size="large"
+              onClick={() => showModal(newArr[0])}
+            >
             <Button className="w-100" type="primary" size="large" href="">
               Đăng ký
             </Button>
@@ -102,6 +133,16 @@ const CourseDetails = () => {
         </Container>
       </section>
       <RandomCourses />
+      <Modal
+        title="Đăng kí khoá học"
+        visible={visible}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        cancelText="Đóng"
+        okText="Đồng ý"
+      >
+        <p>{modalText}</p>
+      </Modal>
     </React.Fragment>
   );
 };

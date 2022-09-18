@@ -12,6 +12,20 @@ export const actGetCourseDetails = (id) => {
   };
 };
 
+export const actGetRegisCourse = (data, navigate) => {
+  return (dispatch) => {
+    dispatch(actRegisCourseRequest());
+
+    api
+      .post(`QuanLyKhoaHoc/DangKyKhoaHoc`, data)
+      .then((res) => {
+        dispatch(actRegisCourseSuccess(res.data));
+        navigate("/", { replace: true });
+      })
+      .catch((err) => dispatch(actRegisCourseFailed(err)));
+  };
+};
+
 const actCourseDetailsRequest = () => {
   return {
     type: ActionType.COURSE_DETAILS_REQUEST,
@@ -28,6 +42,26 @@ const actCourseDetailsSuccess = (data) => {
 const actCourseDetailsFailed = (error) => {
   return {
     type: ActionType.COURSE_DETAILS_FAILED,
+    payload: error,
+  };
+};
+
+const actRegisCourseRequest = () => {
+  return {
+    type: ActionType.REGIS_COURSE_REQUEST,
+  };
+};
+
+const actRegisCourseSuccess = (data) => {
+  return {
+    type: ActionType.REGIS_COURSE_SUCCESS,
+    payload: data,
+  };
+};
+
+const actRegisCourseFailed = (error) => {
+  return {
+    type: ActionType.REGIS_COURSE_FAILED,
     payload: error,
   };
 };

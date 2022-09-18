@@ -12,6 +12,10 @@ const routes = [
         element: lazy(() => import("../containers/Home/HomePage")),
       },
       {
+        path: "profile",
+        element: lazy(() => import("./../containers/Home/Profile")),
+      },
+      {
         path: "courses",
         element: lazy(() => import("../containers/Home/Courses")),
       },
@@ -33,21 +37,21 @@ const routes = [
       },
     ],
   },
-  //Auth Page
-  //   {
-  //     path: "auth",
-  //     element: lazy(() => import("./../containers/AuthPage")),
-  //     nested: [
-  //       {
-  //         path: "login",
-  //         element: lazy(() => import("./../containers/AuthPage/LoginPage")),
-  //       },
-  //       {
-  //         path: "register",
-  //         element: lazy(() => import("./../containers/AuthPage/RegisPage")),
-  //       },
-  //     ],
-  //   },
+  // Auth Page
+  {
+    path: "auth",
+    element: lazy(() => import("./../containers/AuthPage")),
+    nested: [
+      {
+        path: "login",
+        element: lazy(() => import("./../containers/AuthPage/LoginPage")),
+      },
+      {
+        path: "register",
+        element: lazy(() => import("./../containers/AuthPage/RegisPage")),
+      },
+    ],
+  },
 ];
 
 const renderRoutes = () => {
