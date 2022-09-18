@@ -7,6 +7,9 @@ const spin = keyframes`
 `;
 
 const LoaderContainer = styled.div`
+  position: absolute;
+  left: 50%;
+  top: 50%;
   border: 16px solid #f3f3f3;
   border-radius: 50%;
   border-top: 16px solid #3498db;

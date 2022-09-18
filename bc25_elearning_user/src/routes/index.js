@@ -8,26 +8,30 @@ const routes = [
     element: lazy(() => import("./../containers/Home/")),
     nested: [
       {
-        path: "homepage",
-        element: lazy(() => import("./../containers/HomePage")),
+        path: "",
+        element: lazy(() => import("../containers/Home/HomePage")),
+      },
+      {
+        path: "profile",
+        element: lazy(() => import("./../containers/Home/Profile")),
       },
     ],
   },
-  //Auth Page
-  //   {
-  //     path: "auth",
-  //     element: lazy(() => import("./../containers/AuthPage")),
-  //     nested: [
-  //       {
-  //         path: "login",
-  //         element: lazy(() => import("./../containers/AuthPage/LoginPage")),
-  //       },
-  //       {
-  //         path: "register",
-  //         element: lazy(() => import("./../containers/AuthPage/RegisPage")),
-  //       },
-  //     ],
-  //   },
+  // Auth Page
+  {
+    path: "auth",
+    element: lazy(() => import("./../containers/AuthPage")),
+    nested: [
+      {
+        path: "login",
+        element: lazy(() => import("./../containers/AuthPage/LoginPage")),
+      },
+      {
+        path: "register",
+        element: lazy(() => import("./../containers/AuthPage/RegisPage")),
+      },
+    ],
+  },
 ];
 
 const renderRoutes = () => {
