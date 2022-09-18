@@ -1,0 +1,49 @@
+.ant-table,
+.ant-table-cell,
+.ant-table-row {
+  background: transparent !important;
+}
+
+.ant-table-body > tr.ant-table-row:hover > td {
+  background: transparent !important;
+}
+
+.ant-empty-description {
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+section h4 {
+  color: #fff;
+}
+
+section h4 span {
+  color: #e250e5;
+}
+
+.course__content h5 {
+  color: #fff;
+}
+
+.desc,
+.desc__content {
+  color: #fff;
+}
+
+.creator__info h6 {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.772);
+  margin-bottom: 0;
+  font-weight: 300;
+}
+
+.creator__info span {
+  font-size: 0.9rem;
+  color: #fff;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+.creator__info i {
+  color: #ffc107;
+}

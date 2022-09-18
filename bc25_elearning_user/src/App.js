@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { renderRoutes } from "./routes";
 import { Suspense } from "react";
+import "./App.css";
 
 function App() {
   return (

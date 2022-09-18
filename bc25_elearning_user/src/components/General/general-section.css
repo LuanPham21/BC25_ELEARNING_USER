@@ -1,0 +1,11 @@
+.general__section {
+  background: url("../../../public/assets/bg.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 150px;
+}
+
+.general__section h2 {
+  color: #fff;
+}

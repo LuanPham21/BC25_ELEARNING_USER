@@ -15,6 +15,26 @@ const routes = [
         path: "profile",
         element: lazy(() => import("./../containers/Home/Profile")),
       },
+      {
+        path: "courses",
+        element: lazy(() => import("../containers/Home/Courses")),
+      },
+      {
+        path: "about",
+        element: lazy(() => import("../containers/Home/About")),
+      },
+      {
+        path: "contact",
+        element: lazy(() => import("../containers/Home/Contact")),
+      },
+      {
+        path: "search-course",
+        element: lazy(() => import("../containers/Home/Search")),
+      },
+      {
+        path: "course-detail",
+        element: lazy(() => import("../containers/Home/CourseDetails")),
+      },
     ],
   },
   // Auth Page
