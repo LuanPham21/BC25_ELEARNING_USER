@@ -109,13 +109,13 @@ const CourseDetails = () => {
             </div>
             <p className="mt-3 text-white">Mô tả: </p>
             <p className="mb-4 desc">{newArr[0]?.moTa}</p>
-
             <Button
               className="w-100"
               type="primary"
               size="large"
               onClick={() => showModal(newArr[0])}
             >
+            <Button className="w-100" type="primary" size="large" href="">
               Đăng ký
             </Button>
           </div>

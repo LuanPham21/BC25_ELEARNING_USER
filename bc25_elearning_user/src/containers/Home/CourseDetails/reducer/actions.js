@@ -14,15 +14,15 @@ export const actGetCourseDetails = (id) => {
 
 export const actGetRegisCourse = (data, navigate) => {
   return (dispatch) => {
-    dispatch(actCourseDetailsRequest());
+    dispatch(actRegisCourseRequest());
 
     api
       .post(`QuanLyKhoaHoc/DangKyKhoaHoc`, data)
       .then((res) => {
-        dispatch(actCourseDetailsSuccess(res.data));
+        dispatch(actRegisCourseSuccess(res.data));
         navigate("/", { replace: true });
       })
-      .catch((err) => dispatch(actCourseDetailsFailed(err)));
+      .catch((err) => dispatch(actRegisCourseFailed(err)));
   };
 };
 

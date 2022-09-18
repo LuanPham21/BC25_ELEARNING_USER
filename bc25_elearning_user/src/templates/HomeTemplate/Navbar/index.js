@@ -2,7 +2,6 @@ import React, { useRef, useEffect } from "react";
 import "./navbar.css";
 import { Container } from "reactstrap";
 import { Button } from "antd";
-
 import { NavLink } from "react-router-dom";
 
 const flag = localStorage.getItem("UserAdmin");
